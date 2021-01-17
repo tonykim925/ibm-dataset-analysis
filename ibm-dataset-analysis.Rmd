@@ -7,7 +7,7 @@ output:
   html_document: default
 ---
 
-# If you came here to see something specific....
+# If you came here to see something specific please go to the bookmark and ...
 
 1. For those who want to see how **I would set up and clean data (especially survey data)**, please go to my **Data Wrangling Section.**
 
@@ -221,7 +221,7 @@ When dealing with people metrics some causes of errors are as follows:
 &nbsp;
 &nbsp;
 
-###Checking for Data Collection, Entry & Recording Error
+### Checking for Data Collection, Entry & Recording Error
 
 I use the summary function to see if the min and max values of each variable seem to make sense. Here I am checking for any unreasonable min and max values (extreme outliers + numbers outside expected range).
 ```{r, eval = FALSE}
@@ -233,7 +233,7 @@ Found all of the min and max values of factor variables and survey questions to 
 &nbsp;
 &nbsp;
 
-###Checking for Laziness (Checking for straightlining)
+### Checking for Laziness (Checking for straightlining)
 ```{r}
 #gathering survey data columns 
 survey_cols <- c(10, 13, 16, 24, 28)
