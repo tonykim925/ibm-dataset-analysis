@@ -7,6 +7,16 @@ output:
   html_document: default
 ---
 
+# If you came here to see something specific....
+
+1. For those who want to see how **I would set up and clean data (especially survey data)**, please go to my **Data Wrangling Section.**
+
+2. For those who want to see how **I analyze and communicate data through data visualizations (or see data visualization codes) ** please go to my **Exploratory Data Analysis Section.** 
+
+3. For those who are interested in the **final results of the analysis** please go to my **Conclusion Section.** 
+
+&nbsp;
+
 # Thoughts on the Dataset & Project 
 
 The IBM HR Analytics Employee Attrition & Performance dataset has become one of the most well recognized datasets for those interested in people analytics. Although the dataset is a fictional, it includes various HR metrics commonly collected in various organizations today. 
@@ -1030,11 +1040,11 @@ f_data %>%
 - - Overall, job environment satisfaction does not seem to be impacted much by overtime. 
 
 
-# Conlusions & Recommendations
+# Conlusions: & Next Steps 
 
-### Conclusions: 
+## Conclusions
 
-After a preliminary exploratory factor analysis, I've come to the following conclusions: 
+After a preliminary exploratory data analysis, the following conclusions seemed to be supported: 
 
 1. The company's is losing a **large amount of young talent** as 55% of all attrition came from employees between 18-32. Also, 36% of employees within the 18-25 age bracket as well as 22% of employees within the 26-32 bracket left indicating the company's struggles maintaining younger talent 
 
@@ -1048,7 +1058,18 @@ After a preliminary exploratory factor analysis, I've come to the following conc
 
 6. Although I hypothesized that **job and environment satisfaction would be lower for those who worked overtime, that did not seem to be the case.** Further analysis on why job and environment satisfaction are low for certain job roles should be evaluated. 
 
-### Recommendations
+7. Altough overtime did not seem to affect job and environment satisfaction, a larger percent of those who worked overtime left the organization compared to those who didn't. 
+
+## Next Steps:
+
+The purpose of the project was to conduct a preliminary analysis to understand the data to guide future investigations. In addition, I worked to create data visualizations to communicate the data to viewers. All of the conclusions should be validated through a series of point-biserial + pearson correlations, inferential statistics (t-tests), and eventually linear + logistic regression models.  
+In addition, gathering qualitative data will be important as well. Exit interview information as well as focus groups within job roles, levels, and departments will help investigate questions we still have. For example, qualitative data from exit interviews and focus groups may help in: 
+
+1. Understanding drivers of low job satisfaction especially within sales reps, laboratory technicians and human resources.
+2. Understanding drivers of low environment satisfaction especially within healthcare representatives and managers. 
+3. Identifying potential culture issues or policies in place pushing younger talent away. 
+4. Confirming income as one of the most common drivers of attrition 
+5. Identifying reasons for why employees work overtime. 
 
 
 
