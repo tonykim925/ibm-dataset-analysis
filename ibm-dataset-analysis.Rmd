@@ -16,7 +16,7 @@ output:
 3. For those who are interested in the **final results of the analysis** please go to my **Conclusion Section.** 
 
 &nbsp;
-
+ 
 # Thoughts on the Dataset & Project 
 
 The IBM HR Analytics Employee Attrition & Performance dataset has become one of the most well recognized datasets for those interested in people analytics. Although the dataset is a fictional, it includes various HR metrics commonly collected in various organizations today. 
