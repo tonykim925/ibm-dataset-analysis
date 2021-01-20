@@ -7,7 +7,7 @@ output:
   html_document: default
 ---
 
-# If you came here to see something specific please go to the bookmark and ...
+# For Specific Information
 
 1. For those who want to see how **I would set up and clean data (especially survey data)**, please go to my **Data Wrangling Section.**
 
@@ -19,13 +19,13 @@ output:
  
 # Thoughts on the Dataset & Project 
 
-The IBM HR Analytics Employee Attrition & Performance dataset has become one of the most well recognized datasets for those interested in people analytics. Although the dataset is a fictional, it includes various HR metrics commonly collected in various organizations today. 
+The IBM HR Analytics Employee Attrition & Performance dataset has become one of the most well-recognized datasets for those interested in people analytics. Although the dataset is fictional, it includes various HR metrics commonly collected in various organizations today. 
 
 The data is perfect for those interested in practicing data analytics skills; however, it should not be used as a template in organizational settings. My reasons are as follows: 
 
-First, it is important to note that the dataset simplifies few metrics and does not provide additional information on how each construct was measured or what each construct means. For example, let's take **job satisfaction** which was measured on a scale of 1 to 4 (1 = low, 2 = medium, 3= high 4 = very high). In the organizational psychology literature, there various scales which measures and defines job satisfaction differently. Without knowing how an organization measures or defines these constructs, it may be difficult to understand why an effect is taking place. 
+First, it is important to note that the dataset simplifies few metrics and does not provide additional information on how each construct was measured or what each construct means. For example, let's take **job satisfaction** which was measured on a scale of 1 to 4 (1 = low, 2 = medium, 3= high 4 = very high). In the organizational psychology literature, there are various scales that measure and define job satisfaction differently. Without knowing how an organization measures or defines these constructs, it may be difficult to understand why an effect is taking place. 
 
-Second, I would like to note how dangerous it can be to utilize some of the metrics included in the dataset for business decisions. Based on your region's labor regulations, you may be exposing you and your organization to potential discrimination charges. I advise you to consult with your legal team before making any decisions. 
+Second, I would like to note how dangerous it can be to utilize some of the metrics included in the dataset for business decisions. Based on your region's labor regulations, you may be exposing your organization to potential discrimination charges. I advise you to consult with your legal team before making any decisions. 
 
 Overall, I loved playing with the dataset. I think it provides a glimpse of what people analytics can be like. Let me show you how I would've approached the dataset if I was in a real organizational setting.
 
@@ -98,13 +98,13 @@ data1 <- ibm_data
 # Data Wrangling
 
 
-Before any analysis, it is critical for the data to be cleaned. For anyone interested in what a clean data looks like, I highly recommend reading Hadley Wickham's paper on "Tidy Data" [Link](https://vita.had.co.nz/papers/tidy-data.pdf). 
+Before any analysis, the data must be cleaned. For anyone interested in what clean data looks like, I highly recommend reading Hadley Wickham's paper on "Tidy Data" [Link](https://vita.had.co.nz/papers/tidy-data.pdf). 
 
-Overall, the data has already been cleaned in terms of format and follows the principle of "Tidy Data". However, there are additional checks that should be done prior to analysis. This is especially true if there are data collected from surveys. These are some of the key things I checked for: 
+Overall, the data has already been cleaned in terms of format and follows the principle of "Tidy Data". However, there are additional checks that should be done before analysis. This is especially true if there are data collected from surveys. These are some of the key things I checked for: 
 
 1. **Missing Data:** are there missing data that we need to account for? 
 2. **Column Classes:** are all the column classes set to the appropriate class?
-3. **Irrelevant Data:** are there any data that we don't need for the analysis? 
+3. **Irrelevant Data:** is there any data that we don't need for the analysis? 
 4. **Data Error Checks:** are there any data errors (e.g. collection, recording, or entry errors) that should be accounted for? 
 
 
@@ -125,7 +125,7 @@ Checking the classes of all the columns.
 str(data1)
 ```
 
-I found that all of factor variables are character variables. In addition, utilizing my background knowledge, I know that Education, JobLevel, and StockOptionLevel are also factor variables.  However, before changing them, I will use the table function to make sure that they are factor variables 
+I found that all factor variables are character variables. Also, utilizing my background knowledge, I know that Education, JobLevel, and StockOptionLevel are also factor variables.  However, before changing them, I will use the table function to make sure that they are factor variables 
 
 &nbsp;
 &nbsp;
@@ -175,7 +175,7 @@ data1[["StockOptionLevel"]] <- as.factor(data1[["StockOptionLevel"]])
 
 ## Checking for Irrelevant Data. 
 
-Often times, irrelevant data are peppered into the dataset. I like to remove irrelevant variables to keep my dataset neat and slim as much as possible (stylistic preference). However, if you or the organization are planning to add on to the dataset or foresee this being a long term project, I would recommend not taking any variables out. However, since this is a completed dataset with no plans to add more participants, I will be removing irrelevant variables Additionally, datasets often includes participant identity variables such as names, computer id, etc.; all of which should be removed to insure participant anonymity.
+Often irrelevant data are peppered into the dataset. I like to remove irrelevant variables to keep my dataset neat and slim as much as possible (stylistic preference). However, if you or the organization are planning to add on to the dataset or foresee this being a long term project, I would recommend not taking any variables out. However, since this is a completed dataset with no plans to add more participants, I will be removing irrelevant variables Additionally, datasets often includes participant identity variables such as names, computer id, etc.; all of which should be removed to ensure participant anonymity.
 
 *Irrelevancy should be determined with careful consideration and should be discussed with relevant stakeholders*
 
@@ -189,8 +189,8 @@ summary(data1)
 
 Take Out: 
 
-- EmployeeCount: all partipants are labeled as 1 
-- StandardHours: all partipants have 80
+- EmployeeCount: all participants are labeled as 1 
+- StandardHours: all participants have 80
 - Over 18: all participant are over 18
 
 
@@ -267,7 +267,7 @@ f_data <- data2
 # Exploratory Data Analysis
 
 The purpose of the EDA is to help me understand the data and help me form my hypotheses.
-At an initial glance of the variables, employees are divided structurally by the following:
+At an initial glance at the variables, employees are divided structurally by the following:
 
 * Job Role
 * Department
@@ -296,7 +296,7 @@ After looking at the attrition distribution as a whole and then by job role, dep
 4.**Those in level 1 had the highest within attrition rate at 26%.** However, there was a slight increase in attrition rate from level 2 to level 3 with level 2 having a within attrition rate of 10% with level 3 at 15%. 
 
 **Final thoughts:** 
-The most concerning irregularities comes when looking at individuals from different job roles. Sales reps leaving at 40% attrition is an alarming number. Although less shocking, individuals from level 1 are also leaving at a higher rate of 26%. Identifying the key drivers of attrition especially at the noted job role and levels will be critical. Therefore, once looking at the data, I decided to focus my analysis on job role and level. 
+The most concerning irregularities come when looking at individuals from different job roles. Sales reps leaving at 40% attrition is an alarming number. Although less shocking, individuals from level 1 are also leaving at a higher rate of 26%. Identifying the key drivers of attrition especially at the noted job role and levels will be critical. Therefore, once looking at the data, I decided to focus my analysis on job role and level. 
   
 &nbsp;
 &nbsp;
@@ -401,14 +401,14 @@ f_data %>%
 
 **Quick Takeaways:**
 
-  - As expected people from the lowest level are leaving than those in higher levels. However, it may be worth while to investigate why there was a slight jump in attrition from level 2 to level 3. 
+  - As expected people from the lowest level are leaving than those in higher levels. However, it may be worthwhile to investigate why there was a slight jump in attrition from level 2 to level 3. 
 
 &nbsp;
 &nbsp;
 
 ## Demographics Analysis 
 
-Therefore, I will evaluate if people in different **age** and **gender** are leaving at different rates. I will ask the following: 
+Therefore, I will evaluate if people of different **age** and **gender** are leaving at different rates. I will ask the following: 
 
   - Are people in certain gender or age groups leaving at higher rates? 
   - Are people in certain gender or age groups in a particular job role or job level leaving at higher rates?
@@ -428,15 +428,15 @@ After looking at the attrition distribution separated by age groups and then age
 
 3. The company lost **36% of employees within the 18-25 bracket** while losing **22% of all employees within the 26-32 bracket.**  
 
-4. The loss of young talent was **specially bad for those who are the sales representatives role and in for those in level 1.**
+4. The loss of young talent was **especially bad for those who are the sales representatives role and in for those in level 1.**
 
 
 **Final thoughts:** 
-The most concerning irregularities comes when looking at the **loss of young talent.** It may be possible that there is a culture or policy unfavorable to younger individuals. Further analysis on why younger talents are leaving will be evaluated when looking at income and satisfaction ratings. This high attrition rate may be fine if those who are leaving are lower performers. However, it is a serious issue if high performers are leaving as well. Unfortunately due to the way the performance ratings were done, it would be nearly impossible to tell (everyone scored either a 3 or 4 on performance rating which means not enough variability exists).
+The most concerning irregularities come when looking at the **loss of young talent.** It may be possible that there is a culture or policy unfavorable to younger individuals. Further analysis on why younger talents are leaving will be evaluated when looking at income and satisfaction ratings. This high attrition rate may be fine if those who are leaving are lower performers. However, it is a serious issue if high performers are leaving as well. Unfortunately due to the way the performance ratings were done, it would be nearly impossible to tell (everyone scored either a 3 or 4 on performance rating which means not enough variability exists).
 
 &nbsp;
 
-### Supporting Analysis for Demgraphic Analysis 1: Age
+### Supporting Analysis for Demographic Analysis 1: Age
 
 
 &nbsp;
@@ -456,7 +456,7 @@ f_data %>%
 Quick Takeaways:
 
   - The average age of the employees is approximately 39.
-  - Overall, the organization has a large number of employees that are in their late twenties to mid 40s.
+  - Overall, the organization has a large number of employees that are in their late twenties to mid-40s.
   - Although not definitive, there does seem to be a higher percentage of those in their 20s leaving the organization. 
 
 **Creating Age Brackets**
@@ -492,8 +492,8 @@ f_data %>%
 
 Quick Takeaways:
 
-  - Approximate 55% of all attrition comes from younger employees between 18-32. Overall, it seems as though the company is struggling to maintain younger talent verses older talent. 
-  - The organization seems to be doing well in keeping employees between the age 33-39 considering only a 22% of attrition for the organization's largest group. The 33-39 age bracket contains their largest number of employees with 432 employees approximately 29.4% of the entire workforce. 
+  - Approximate 55% of all attrition comes from younger employees between 18-32. Overall, it seems as though the company is struggling to maintain younger talent versus older talent. 
+  - The organization seems to be doing well in keeping employees between the ages 33-39 considering only 22% of attrition for the organization's largest group. The 33-39 age bracket contains their largest number of employees with 432 employees approximately 29.4% of the entire workforce. 
 
   
 **Attrition Within Each Age Brackets**  
@@ -523,7 +523,7 @@ f_data %>%
 Quick Takeaways:
 
   - Overall, 36% of all employees in the 18-25 age bracket left in the given year. That percentage drops to 22% when we go down to the next age bracket. 
-  - Looking at the attrition rates by age bracket and within age bracket, the story continues to indicate that younger people are leaving at a higher rate.
+  - Looking at the attrition rates by age bracket and within the age bracket, the story continues to indicate that younger people are leaving at a higher rate.
   
   
 **Attrition Within Each Age Brackets**  
@@ -543,8 +543,8 @@ f_data %>%
 
 Quick Takeaways:
 
-  - When we look at attrition by age and job role, things seem relatively normal. People are leaving proportionally to the number of people within the age bracket and job role. 
-  - More than 50% of sales rep between the ages of 18-25 are leaving.  
+  - When we look at attrition by age and job role, things seem relatively normal. People are leaving proportionally to the number of people within the age bracket and job roles. 
+  - More than 50% of sales reps between the ages of 18-25 are leaving.  
 
   
 **Attrition Within Each Age Brackets and Job Level**  
@@ -659,7 +659,7 @@ f_data %>%
 4. **Income does not seem to be a strong driver of job satisfaction.** 
 
 **Final thoughts:**
-The analysis has shown that **income seems to be a strong driver of attrition especially for low paying job roles.** Sales, which had the highest attrition rate was one of the least paid jobs. The analysis has also shown that **income disparities between peers is most likely not a primary reason for attrition.** It may be relevant to see if job roles such as sales reps, research scientists and laboratory technicians should have their income levels be reevaluated and readjusted based on industry and location standards.  
+The analysis has shown that **income seems to be a strong driver of attrition especially for low-paying job roles.** Sales, which had the highest attrition rate was one of the least paid jobs. The analysis has also shown that **income disparities between peers are most likely not a primary reason for attrition.** It may be relevant to see if job roles such as sales reps, research scientists, and laboratory technicians should have their income levels be reevaluated and readjusted based on industry and location standards.  
 
 
 ### Supporting Analysis For Income Difference
@@ -707,7 +707,7 @@ f_data %>%
 
   - Managers and Research Directors make the most income. The two positions also have the lowest attrition rate at 5% and 3% respectively. 
   - Sales reps, laboratory technicians, and research scientists have the lowest income. These three positions have high attrition rates at 40%, 24%, and 16% each.
-  - This seems to support my hypothesis that lower income leads to 
+  - This seems to support my hypothesis that lower-income leads to 
 
 
 **Income Differences by Job Role and Attrition**
@@ -739,7 +739,7 @@ f_data %>%
 
 **Quick Takeaways:** 
 
-  - Although there was no strong support for attrition due income differences within job roles, there does seem to be support when it comes to departments. 
+  - Although there was no strong support for attrition due to income differences within job roles, there does seem to be support when it comes to departments. 
   - This leads me to hypothesize that the problem exists within departments rather than job roles. For example, research scientists who make far less than research directors are more likely to leave due to the income disparity between the two roles.  
 
 
@@ -788,7 +788,7 @@ f_data %>%
 
 **Quick Takeaways:** 
 
-  - Overall, there doesn't seem to be strong support showing that lower income is the reason for lower job satisfaction. For those who left and those who stayed, average income did not rise with rising job satisfaction. In fact, there is nearly 0 correlation between income and job satisfaction.
+  - Overall, there doesn't seem to be strong support showing that lower-income is the reason for lower job satisfaction. For those who left and those who stayed, average income did not rise with rising job satisfaction. In fact, there is nearly 0 correlation between income and job satisfaction.
   
 &nbsp;
 &nbsp;
@@ -804,16 +804,16 @@ f_data %>%
 **Summary:** 
 
 1. After comparing the average job satisfaction by role and attrition, it is evident that for the jobs with the highest attrition rates (e.g. sales rep, lab tech, and human resources), there was a large gap in average job satisfaction for those who left and those who stayed. 
-2. This effect however is close to 0 for manufactoring director and healthcare representative.
+2. This effect however is close to 0 for manufacturing director and healthcare representative.
 3. After comparing the average environment satisfaction by role and attrition, healthcare representative and managers (two job roles that does not have high attrition rates) have the largest gaps between those who leave and those who stay. Understanding their environment and how their environment is affecting their work will be critical. 
-4. In addition, exploratory data analysis shows that that for sales reps and research scientists, the average environmental satisfaction gap between those who stayed and those who left were minimal. This indicates that for those roles, environment did not play a huge factor in determining leaving the organization. 
+4. In addition, exploratory data analysis shows that for sales reps and research scientists, the average environmental satisfaction gap between those who stayed and those who left was minimal. This indicates that for those roles, the environment did not play a huge factor in determining leaving the organization. 
 5. 30.5% of individuals who worked overtime left the organization in comparison to 10.4% of individuals who did not. 
-6. However, overtime was relatively constant throughout levels and job role. It may be worth considering other factors that contribute to when and which employees work overtime.
-7. Overtime did not seem to be a driver of job satisfaction and environment satisfaciton
+6. However, overtime was relatively constant throughout levels and job roles. It may be worth considering other factors that contribute to when and which employees work overtime.
+7. Overtime did not seem to be a driver of job satisfaction and environment satisfaction
 
 **Final thoughts:**
   
-There is strong evidence that factors relating to satisfaction are key drivers to attrition. Job satisfaction seems to be a bigger factor for roles with high levels of attrition such as Sales Rep, Laboratory technicians, human resources, and sales executives. However environment satisfaction seems to be a bigger factor for roles with low attrition such as Healthcare reps, and managers. Managers seem to be the most impacted by ow Environment Satisfaction. Overtime also seems to play a factor in attrition. However, overtime rates seem relatively similar within roles and level.  
+There is strong evidence that factors relating to satisfaction are key drivers of attrition. Job satisfaction seems to be a bigger factor for roles with high levels of attrition such as Sales Rep, Laboratory technicians, human resources, and sales executives. However, environment satisfaction seems to be a bigger factor for roles with low attrition such as Healthcare reps, and managers. Managers seem to be the most impacted by ow Environment Satisfaction. Overtime also seems to play a factor in attrition. However, overtime rates seem relatively similar within roles and levels.  
 
 &nbsp;
 &nbsp;
@@ -850,7 +850,7 @@ f_data %>%
 **Quick Takeaways:** 
 
   - Here we find something really interesting. Overall, those who leave the organization tend to have lower job satisfaction ratings. 
-  - However, the effect of job satisfaction on attrition seems to be stronger for those who are in job roles with higher attrition rate.
+  - However, the effect of job satisfaction on attrition seems to be stronger for those who are in job roles with a higher attrition rate.
   - The difference in job satisfaction is smaller when you go to job roles with lower attrition rates. 
 
 **Attrition by Environmental Satisfaction** 
@@ -881,11 +881,11 @@ f_data %>%
 
 **Quick Takeaways:** 
 
-  - Here we find something really interesting again. Overall, those who leave the organization tend to have lower environmental satisfaction ratings. This effect however is close to 0 for manufactoring director and healthcare representative.
+  - Here we find something really interesting again. Overall, those who leave the organization tend to have lower environmental satisfaction ratings. This effect however is close to 0 for manufacturing director and healthcare representative.
   - However, in an opposite trend to job satisfaction, the effect of environmental satisfaction ratings on attrition seems higher for job roles with higher attrition rates. 
-  - This shows that while job satisfaction may have a stronger role in attrition for sales rep, laboratory technician, HR, environmental satisfaction may have a stronger role for positions like healthcare representative and managers. 
+  - This shows that while job satisfaction may have a stronger role in attrition for sales rep, laboratory technician, HR, environmental satisfaction may have a stronger role for positions like healthcare representatives and managers. 
   - Strangely enough research director was the only position that had higher environmental satisfaction for those who left compared to those who stayed. 
-  - The largest difference in environment satisfaction ratings were from Managers. There should be an investigation to see what is driving such low environmental satisfaction from Managers. 
+  - The largest difference in environment satisfaction ratings was from Managers. There should be an investigation to see what is driving such low environmental satisfaction from Managers. 
   
 **Attrition by Overtime**  
 ```{r}
@@ -1046,9 +1046,9 @@ f_data %>%
 
 After a preliminary exploratory data analysis, the following conclusions seemed to be supported: 
 
-1. The company's is losing a **large amount of young talent** as 55% of all attrition came from employees between 18-32. Also, 36% of employees within the 18-25 age bracket as well as 22% of employees within the 26-32 bracket left indicating the company's struggles maintaining younger talent 
+1. The company is losing a **large amount of young talent** as 55% of all attrition came from employees between 18-32. Also, 36% of employees within the 18-25 age bracket, as well as 22% of employees within the 26-32 bracket, left indicating the company's struggles maintaining younger talent 
 
-2. Sales representatives had the highest within attrition at 40% with laboratory technician and human resources following at 24% and 23%. After investigation, **low income as well as low job satisfaction ratings may be strong contributors to the high attrition rate within sales representatives, laboratory technicians and human resources.**
+2. Sales representatives had the highest within attrition at 40% with laboratory technicians and human resources following at 24% and 23%. After investigation, **low income, as well as low job satisfaction ratings, may be strong contributors to the high attrition rate within sales representatives, laboratory technicians, and human resources.**
 
 3. **While environment satisfaction does seem to be a factor contributing to attrition across job roles, it was most evident for healthcare representatives and managers.** There was a large gap in environmental satisfaction between those healthcare representatives and managers who stayed and those who left. Further investigation on what environmental issues are negatively affecting those roles will be critical. 
 
@@ -1058,18 +1058,18 @@ After a preliminary exploratory data analysis, the following conclusions seemed 
 
 6. Although I hypothesized that **job and environment satisfaction would be lower for those who worked overtime, that did not seem to be the case.** Further analysis on why job and environment satisfaction are low for certain job roles should be evaluated. 
 
-7. Altough overtime did not seem to affect job and environment satisfaction, a larger percent of those who worked overtime left the organization compared to those who didn't. 
+7. Although overtime did not seem to affect job and environment satisfaction, a larger percentage of those who worked overtime left the organization compared to those who didn't. 
 
 ## Next Steps:
 
-The purpose of the project was to conduct a preliminary analysis to understand the data to guide future investigations. In addition, I worked to create data visualizations to communicate the data to viewers. All of the conclusions should be validated through a series of point-biserial + pearson correlations, inferential statistics (t-tests), and eventually linear + logistic regression models.  
-In addition, gathering qualitative data will be important as well. Exit interview information as well as focus groups within job roles, levels, and departments will help investigate questions we still have. For example, qualitative data from exit interviews and focus groups may help in: 
+The purpose of the project was to conduct a preliminary analysis to understand the data to guide future investigations. In addition, I worked to create data visualizations to communicate the data to viewers. All of the conclusions should be validated through a series of point-biserial + Pearson correlations, inferential statistics (t-tests), and eventually linear + logistic regression models.  
+Also, gathering qualitative data will be important as well. Exit interview information, as well as focus groups within job roles, levels, and departments, will help investigate questions we still have. For example, qualitative data from exit interviews and focus groups may help in: 
 
-1. Understanding drivers of low job satisfaction especially within sales reps, laboratory technicians and human resources.
+1. Understanding drivers of low job satisfaction especially within sales reps, laboratory technicians, and human resources.
 2. Understanding drivers of low environment satisfaction especially within healthcare representatives and managers. 
-3. Identifying potential culture issues or policies in place pushing younger talent away. 
+3. Identifying potential culture or policy issues pushing younger talent away. 
 4. Confirming income as one of the most common drivers of attrition 
-5. Identifying reasons for why employees work overtime. 
+5. Identifying reasons why employees work overtime. 
 
 
 
